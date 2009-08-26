@@ -1,0 +1,48 @@
+= Blogger
+
+To apply blogger database migration:
+rake db:migrate:extension
+
+To import blog articles, run:
+rake blogger:import_articles
+#RSS_FEED
+#rails config
+#environment variables
+
+To add blogger articles, add the following to a page, snippet or layout, where inputs to the feed include limit or sort:
+<r:blogger_articles limit="10" sort="date_published DESC">
+
+<r:blogger_articles:full>
+<h2>Recent Blog Articles</h2>
+<ul>
+<r:blogger_articles:each>
+<li><r:blogger_article /></li>
+</r:blogger_articles:each>
+</ul>
+</r:blogger_articles:full>
+
+<r:blogger_articles:empty>
+Sorry, there are no recent blog articles.
+</r:blogger_articles:empty>
+
+</r:blogger_articles>
+
+
+
+To add news and blogger articles, add the following to a page, snippet or layout:
+<r:news_blogger_articles blogger_limit="5" news_limit="5" blogger_sort="date_published DESC" news_sort="published_at DESC">
+
+<r:news_blogger_articles:full>
+<h2>Recent Blog Articles</h2>
+<ul>
+<r:news_blogger_articles:each>
+<li><r:news_blogger_article /></li>
+</r:news_blogger_articles:each>
+</ul>
+</r:news_blogger_articles:full>
+
+<r:news_blogger_articles:empty>
+Sorry, there are no recent news or blog articles.
+</r:news_blogger_articles:empty>
+
+</r:news_blogger_articles>
